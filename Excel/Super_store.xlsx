@@ -1,1 +1,77 @@
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+📊 Superstore Sales Analysis (Microsoft Excel)
+Project Overview
+
+This project analyzes the Superstore Sales dataset using Microsoft Excel to uncover trends in sales performance, customer segments, regions, product categories, and monthly sales.
+
+The objective was to practice Excel data analysis techniques while generating business insights that can support data-driven decision-making.
+
+Dataset
+Source: Kaggle – Superstore Sales Dataset
+Records: Sales transactions from a retail superstore
+Tool Used: Microsoft Excel
+Data Cleaning
+
+Before analysis, the dataset was cleaned by:
+
+Checking for duplicate records (none found)
+Standardizing inconsistent date formats
+Creating calculated columns for analysis
+Converting the dataset into an Excel Table
+Formatting numerical fields for consistency
+Excel Skills Applied
+Pivot Tables
+Aggregate Functions (SUM, AVERAGE, COUNT, MAX, MIN)
+IF Function
+Data Cleaning
+Sorting & Filtering
+Table Formatting
+Dashboard Design
+Charts and Visualizations
+Business Questions Answered
+Which region generates the highest sales?
+Which customer segment contributes the most revenue?
+Which month records the highest sales?
+Which product sub-category generates the most sales?
+What are the total sales, average sales, highest sale, lowest sale, and total number of orders?
+Key Insights
+The Consumer segment generated the highest total sales.
+The West region recorded the highest sales performance.
+Sales peaked in November and December, indicating strong year-end demand.
+Phones and Chairs were among the highest-selling product sub-categories.
+Sales varied significantly across regions and customer segments, highlighting opportunities for targeted business strategies.
+Dashboard Features
+
+The dashboard includes:
+
+Sales by Region
+Sales by Customer Segment
+Monthly Sales Trend
+Sales by Product Sub-Category
+KPI Cards
+Total Sales
+Average Sales
+Maximum Sale
+Minimum Sale
+Total Orders
+Files
+Super_store.xlsx
+README.md
+Skills Demonstrated
+Data Cleaning
+Exploratory Data Analysis (EDA)
+Business Insight Generation
+Microsoft Excel
+Pivot Tables
+Dashboard Development
+Data Visualization
+Author
+
+Olawale Excellent
+
+Aspiring Data Analyst skilled in:
+
+Microsoft Excel
+SQL (MySQL)
+Power BI
+
+Building practical projects to strengthen analytical skills and solve real-world business problems.
