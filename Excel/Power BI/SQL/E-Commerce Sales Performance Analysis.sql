@@ -1,88 +1,103 @@
-🛒 Amazon E-Commerce Sales Analysis Using MySQL
-Project Overview
+SELECT * FROM `e-commerce profitability & sales`.`amazon sale report`;
 
-This project analyzes an Amazon e-commerce sales dataset using MySQL to explore revenue trends, product performance, fulfillment methods, and geographic sales distribution.
+select sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`;
 
-The goal was to practice SQL by answering business questions and extracting meaningful insights from transactional sales data.
+select count(distinct `order id`) as total_orders
+from `e-commerce profitability & sales`.`amazon sale report`;
 
-Database
+select sum(Qty)
+from  `e-commerce profitability & sales`.`amazon sale report`;
 
-Database: e-commerce profitability & sales
+select category, sum(amount) AS total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+Group by category
+order by total_revenue desc;
 
-Main Table: amazon sale report
+select sku, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+Group by sku
+order by total_revenue desc
+limit 10;
 
-Reference Table: sale report
+select `Ship-state`, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+Group by `Ship-state`
+order by total_revenue desc
+limit 10;
 
-SQL Skills Demonstrated
+Select Fulfilment, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+Group by Fulfilment;
 
-SELECT statements
+SELECT MONTH(`Date`) AS month, SUM(Amount) AS total_revenue
+FROM `e-commerce profitability & sales`.`amazon sale report`
+GROUP BY MONTH(`Date`)
+ORDER BY month;
 
-Aggregate functions (SUM, COUNT)
+select category, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+where Category in ('Set','Bottom', 'Top')
+Group by category;
 
-GROUP BY
+select `Order id`, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+where Amount BETWEEN 100 and 500
+group by `order id`
+order by total_revenue desc
+Limit 20;
 
-ORDER BY
+select category, sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report`
+Group by category
+having sum(amount) >1000;
 
-LIMIT
+SELECT Category, SUM(Amount) AS total_revenue
+FROM `e-commerce profitability & sales`.`amazon sale report`
+GROUP BY Category WITH ROLLUP;
 
-WHERE filtering
-
-HAVING
-
-JOIN operations
-
-ROLLUP totals
-
-Business reporting queries
-
-Business Questions Answered
-
-What is the total revenue generated?
-
-How many unique orders were placed?
-
-How many units were sold?
-
-Which product categories generate the most revenue?
-
-Which SKUs are the top revenue generators?
-
-Which states contribute the highest sales?
-
-How does revenue vary by fulfillment method?
-
-What are the monthly revenue trends?
-
-Which product sizes generate the most revenue?
-
-Which categories exceed a revenue threshold of 50,000?
-
-Key Insights
-
-Identified the highest-revenue product categories.
-
-Determined the top-performing SKUs by sales value.
-
-Compared sales performance across different states.
-
-Analyzed revenue trends by month.
-
-Evaluated the impact of fulfillment methods on revenue.
-
-Combined data from two tables using JOIN operations for deeper analysis.
-
-Advanced SQL Features Used
-GROUP BY category
-HAVING SUM(amount) > 1000
-GROUP BY category WITH ROLLUP
-JOIN sale_report ON ar.sku = sr.`SKU Code`
-Files
-Amazon_Ecommerce_SQL_Analysis.sql
-README.md
-Author
-
-Olawale Excellent
-
-Aspiring Data Analyst
-
-Skills: MySQL, Microsoft Excel, Power BI
+select 
+         ar.amount,
+         sr.`category`,
+         ar.SKU
+from `e-commerce profitability & sales`.`amazon sale report` ar
+join  `e-commerce profitability & sales`.`sale report` sr
+       on ar.sku = sr.`SKU Code`;
+       
+       select 
+       sr.category,
+       sum(amount) AS total_revenue
+       from `e-commerce profitability & sales`.`amazon sale report` ar
+       join  `e-commerce profitability & sales`.`sale report` sr
+            on ar.Sku = sr.`SKU Code`
+            Group by category;
+            
+            
+select 
+sr.category,
+sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report` ar
+Join  `e-commerce profitability & sales`.`sale report` sr
+	  on ar.Sku = Sr.`Sku code`
+      Group by sr.category
+      order by total_revenue desc;
+      
+      select
+      sr.size,
+      sum(amount) as total_revenue
+      from `e-commerce profitability & sales`.`amazon sale report` ar
+      Join `e-commerce profitability & sales`.`sale report` sr
+            on ar.sku = sr.`sku code`
+            Group by sr.size
+            order by total_revenue desc;
+            
+            
+select 
+sr.category,
+sum(amount) as total_revenue
+from `e-commerce profitability & sales`.`amazon sale report` ar
+Join  `e-commerce profitability & sales`.`sale report` sr
+     on ar.sku = sr.`SKU Code`
+Group by sr.category
+having sum(ar.amount) >50000
+Order by total_revenue desc;
